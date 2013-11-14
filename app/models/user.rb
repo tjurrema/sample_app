@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   validates :name,  presence: true, length: { maximum: 50 }
   
   #checks if the email is probably true and unique
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  
+    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   #for the password
